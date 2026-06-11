@@ -1,0 +1,105 @@
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e293b;
+  color: #f8fafc;
+  padding: 1.5rem 1rem;
+  flex-shrink: 0;
+}
+
+.sidebar__title {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar__link {
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.sidebar__link:hover {
+  background: #334155;
+  color: #f8fafc;
+}
+
+.sidebar__link--active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Topbar */
+.topbar {
+  height: 60px;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+}
+
+.topbar__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.topbar__user {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.content h2 {
+  margin-bottom: 0.5rem;
+}
+
+.content > p {
+  color: #64748b;
+  margin-bottom: 1.5rem;
+}
+
+.content__card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.content__card h3 {
+  margin-bottom: 0.5rem;
+  color: #3b82f6;
+}
+
+.content__card p {
+  color: #64748b;
+}
