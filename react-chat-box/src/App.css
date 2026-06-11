@@ -1,3 +1,68 @@
+/* Auth screen */
+.auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  padding: 1.5rem;
+}
+
+.auth__card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.auth__title {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.auth__subtitle {
+  color: #64748b;
+  margin-bottom: 2rem;
+}
+
+.auth__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.auth__btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+}
+
+.auth__btn--primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.auth__btn--primary:hover {
+  background: #2563eb;
+}
+
+.auth__btn--secondary {
+  background: #fff;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.auth__btn--secondary:hover {
+  background: #f8fafc;
+}
+
 .app {
   display: flex;
   min-height: 100vh;
@@ -65,6 +130,12 @@
 .topbar__title {
   font-size: 1.25rem;
   font-weight: 600;
+}
+
+.topbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .topbar__user {
