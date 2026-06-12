@@ -6,7 +6,7 @@ function Topbar() {
 
   return (
     <header className="topbar">
-      <h1 className="topbar__title">Dashboard</h1>
+      <h1 className="topbar__title">Weather App</h1>
       <div className="topbar__actions">
         <span className="topbar__user">Hello, {name}</span>
         <UserButton />

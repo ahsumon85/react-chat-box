@@ -1,14 +1,14 @@
+import WeatherApp from './weather/WeatherApp'
+
 function Content() {
   return (
     <main className="content">
-      <h2>Welcome to your React learning app</h2>
+      <h2>Learn React with WeatherAPI</h2>
       <p>
-        This is the main content area. You will build features here step by step.
+        Build a real weather app and learn JSX, components, props, state, events, lists, and
+        conditional rendering along the way.
       </p>
-      <div className="content__card">
-        <h3>Step 1: Layout</h3>
-        <p>Sidebar, Topbar, and Content — you are here!</p>
-      </div>
+      <WeatherApp />
     </main>
   )
 }
