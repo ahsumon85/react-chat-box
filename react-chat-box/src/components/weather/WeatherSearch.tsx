@@ -1,4 +1,15 @@
+import type { FormEvent, RefObject } from 'react'
 import ConceptBadge from './ConceptBadge'
+
+interface WeatherSearchProps {
+  city: string
+  onCityChange: (city: string) => void
+  onSubmit: (event: FormEvent<HTMLFormElement>) => void
+  loading: boolean
+  inputRef: RefObject<HTMLInputElement | null>
+  recentSearches: string[]
+  onRecentSelect: (city: string) => void
+}
 
 function WeatherSearch({
   city,
@@ -8,7 +19,7 @@ function WeatherSearch({
   inputRef,
   recentSearches,
   onRecentSelect,
-}) {
+}: WeatherSearchProps) {
   return (
     <section className="weather-section">
       <div className="weather-section__header">

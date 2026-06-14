@@ -1,7 +1,13 @@
 import { useMemo } from 'react'
+import type { ForecastDay, WeatherCurrent } from '../../types/weather'
 import ConceptBadge from './ConceptBadge'
 
-function WeatherSummary({ current, forecastDays }) {
+interface WeatherSummaryProps {
+  current: WeatherCurrent
+  forecastDays: ForecastDay[]
+}
+
+function WeatherSummary({ current, forecastDays }: WeatherSummaryProps) {
   const summary = useMemo(() => {
     const avgHigh =
       forecastDays.reduce((sum, day) => sum + day.day.maxtemp_c, 0) / forecastDays.length

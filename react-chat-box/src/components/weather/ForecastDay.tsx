@@ -1,4 +1,10 @@
-function ForecastDay({ day }) {
+import type { ForecastDay as ForecastDayData } from '../../types/weather'
+
+interface ForecastDayProps {
+  day: ForecastDayData
+}
+
+function ForecastDay({ day }: ForecastDayProps) {
   return (
     <li className="forecast-day">
       <span className="forecast-day__date">{day.date}</span>

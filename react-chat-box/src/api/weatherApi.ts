@@ -1,10 +1,18 @@
+import type { WeatherData } from '../types/weather'
+
 const API_BASE = 'https://api.weatherapi.com/v1'
 
-function getApiKey() {
+interface WeatherApiErrorResponse {
+  error?: {
+    message?: string
+  }
+}
+
+function getApiKey(): string | undefined {
   return import.meta.env.VITE_WEATHER_API_KEY
 }
 
-export async function fetchWeather(city) {
+export async function fetchWeather(city: string): Promise<WeatherData> {
   const key = getApiKey()
   if (!key) {
     throw new Error(
@@ -16,9 +24,9 @@ export async function fetchWeather(city) {
   const response = await fetch(url)
 
   if (!response.ok) {
-    const data = await response.json().catch(() => ({}))
+    const data = (await response.json().catch(() => ({}))) as WeatherApiErrorResponse
     throw new Error(data.error?.message || 'Failed to fetch weather')
   }
 
-  return response.json()
+  return response.json() as Promise<WeatherData>
 }

@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback, type FormEvent } from 'react'
 import useWeather from '../../hooks/useWeather'
 import useRecentSearches from '../../hooks/useRecentSearches'
 import useFocusOnMount from '../../hooks/useFocusOnMount'
@@ -24,7 +24,7 @@ function WeatherApp() {
   const inputRef = useFocusOnMount()
 
   const handleSubmit = useCallback(
-    (event) => {
+    (event: FormEvent<HTMLFormElement>) => {
       event.preventDefault()
       const trimmed = city.trim()
       if (trimmed) {
@@ -36,7 +36,7 @@ function WeatherApp() {
   )
 
   const handleRecentSelect = useCallback(
-    (selectedCity) => {
+    (selectedCity: string) => {
       setCity(selectedCity)
       loadWeather(selectedCity)
       addRecent(selectedCity)
@@ -61,7 +61,9 @@ function WeatherApp() {
             Add your key to <code>.env.local</code>:
             <pre>VITE_WEATHER_API_KEY=your_key_here</pre>
           </li>
-          <li>Restart the dev server (<code>npm run dev</code>)</li>
+          <li>
+            Restart the dev server (<code>npm run dev</code>)
+          </li>
         </ol>
       </div>
     )
@@ -121,9 +123,7 @@ function WeatherApp() {
 
         {loading && <p className="weather-status weather-status--loading">Fetching weather…</p>}
 
-        {error && !loading && (
-          <p className="weather-status weather-status--error">{error}</p>
-        )}
+        {error && !loading && <p className="weather-status weather-status--error">{error}</p>}
 
         {!loading && !error && !weather && (
           <p className="weather-status">Search for a city to see the weather.</p>

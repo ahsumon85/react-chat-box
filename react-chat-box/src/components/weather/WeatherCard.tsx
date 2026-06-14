@@ -1,6 +1,12 @@
+import type { WeatherCurrent, WeatherLocation } from '../../types/weather'
 import ConceptBadge from './ConceptBadge'
 
-function WeatherCard({ location, current }) {
+interface WeatherCardProps {
+  location: WeatherLocation
+  current: WeatherCurrent
+}
+
+function WeatherCard({ location, current }: WeatherCardProps) {
   return (
     <section className="weather-section">
       <div className="weather-section__header">
@@ -8,7 +14,8 @@ function WeatherCard({ location, current }) {
         <ConceptBadge label="Props" />
       </div>
       <p className="weather-section__hint">
-        This component receives <code>location</code> and <code>current</code> as props from its parent — it does not fetch data itself.
+        This component receives <code>location</code> and <code>current</code> as props from its
+        parent — it does not fetch data itself.
       </p>
 
       <div className="weather-card">
@@ -31,7 +38,9 @@ function WeatherCard({ location, current }) {
         <ul className="weather-card__details">
           <li>Feels like: {current.feelslike_c}°C</li>
           <li>Humidity: {current.humidity}%</li>
-          <li>Wind: {current.wind_kph} km/h {current.wind_dir}</li>
+          <li>
+            Wind: {current.wind_kph} km/h {current.wind_dir}
+          </li>
         </ul>
       </div>
     </section>

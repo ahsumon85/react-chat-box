@@ -1,7 +1,12 @@
+import type { ForecastDay as ForecastDayData } from '../../types/weather'
 import ConceptBadge from './ConceptBadge'
 import ForecastDay from './ForecastDay'
 
-function ForecastList({ days }) {
+interface ForecastListProps {
+  days: ForecastDayData[]
+}
+
+function ForecastList({ days }: ForecastListProps) {
   return (
     <section className="weather-section">
       <div className="weather-section__header">
@@ -9,7 +14,8 @@ function ForecastList({ days }) {
         <ConceptBadge label="Lists & Keys" />
       </div>
       <p className="weather-section__hint">
-        We use <code>.map()</code> to render a list. Each item gets a unique <code>key</code> (here: <code>day.date</code>) so React can track changes efficiently.
+        We use <code>.map()</code> to render a list. Each item gets a unique <code>key</code>{' '}
+        (here: <code>day.date</code>) so React can track changes efficiently.
       </p>
 
       <ul className="forecast-list">

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
-function useFocusOnMount() {
-  const ref = useRef(null)
+function useFocusOnMount<T extends HTMLElement = HTMLInputElement>() {
+  const ref = useRef<T>(null)
 
   useEffect(() => {
     ref.current?.focus()
