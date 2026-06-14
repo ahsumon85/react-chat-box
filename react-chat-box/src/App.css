@@ -376,3 +376,82 @@
 .weather-setup a {
   color: #3b82f6;
 }
+
+.hooks-overview__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.hooks-overview__list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.weather-meta {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.recent-searches {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.recent-searches__label {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.recent-searches__btn {
+  padding: 0.25rem 0.6rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #334155;
+}
+
+.recent-searches__btn:hover {
+  background: #e2e8f0;
+}
+
+.weather-summary {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.weather-summary li {
+  background: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.weather-summary span {
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.weather-summary strong {
+  font-size: 1.1rem;
+  color: #1e293b;
+}

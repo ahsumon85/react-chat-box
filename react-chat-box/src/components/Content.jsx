@@ -5,8 +5,8 @@ function Content() {
     <main className="content">
       <h2>Learn React with WeatherAPI</h2>
       <p>
-        Build a real weather app and learn JSX, components, props, state, events, lists, and
-        conditional rendering along the way.
+        Build a real weather app and learn components, props, events, lists, and React hooks —
+        useState, useEffect, useRef, useMemo, useCallback, and custom hooks.
       </p>
       <WeatherApp />
     </main>
