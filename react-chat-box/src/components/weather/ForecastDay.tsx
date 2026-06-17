@@ -1,3 +1,4 @@
+import { useUnits } from '../../context/UnitsContext'
 import type { ForecastDay as ForecastDayData } from '../../types/weather'
 
 interface ForecastDayProps {
@@ -5,6 +6,8 @@ interface ForecastDayProps {
 }
 
 function ForecastDay({ day }: ForecastDayProps) {
+  const { formatTemp } = useUnits()
+
   return (
     <li className="forecast-day">
       <span className="forecast-day__date">{day.date}</span>
@@ -15,7 +18,7 @@ function ForecastDay({ day }: ForecastDayProps) {
       />
       <span className="forecast-day__condition">{day.day.condition.text}</span>
       <span className="forecast-day__temps">
-        {day.day.maxtemp_c}° / {day.day.mintemp_c}°
+        {formatTemp(day.day.maxtemp_c)} / {formatTemp(day.day.mintemp_c)}
       </span>
     </li>
   )

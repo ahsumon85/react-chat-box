@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { useUnits } from '../../context/UnitsContext'
 import type { ForecastDay, WeatherCurrent } from '../../types/weather'
 import ConceptBadge from './ConceptBadge'
 
@@ -8,6 +9,8 @@ interface WeatherSummaryProps {
 }
 
 function WeatherSummary({ current, forecastDays }: WeatherSummaryProps) {
+  const { formatTemp } = useUnits()
+
   const summary = useMemo(() => {
     const avgHigh =
       forecastDays.reduce((sum, day) => sum + day.day.maxtemp_c, 0) / forecastDays.length
@@ -19,8 +22,9 @@ function WeatherSummary({ current, forecastDays }: WeatherSummaryProps) {
 
     return {
       comfort,
-      avgHigh: avgHigh.toFixed(1),
-      tempRange: `${Math.min(...forecastDays.map((d) => d.day.mintemp_c))}° – ${Math.max(...forecastDays.map((d) => d.day.maxtemp_c))}°`,
+      avgHigh,
+      minTemp: Math.min(...forecastDays.map((d) => d.day.mintemp_c)),
+      maxTemp: Math.max(...forecastDays.map((d) => d.day.maxtemp_c)),
     }
   }, [current.temp_c, forecastDays])
 
@@ -43,11 +47,13 @@ function WeatherSummary({ current, forecastDays }: WeatherSummaryProps) {
         </li>
         <li>
           <span>Avg high (3 days)</span>
-          <strong>{summary.avgHigh}°C</strong>
+          <strong>{formatTemp(summary.avgHigh)}</strong>
         </li>
         <li>
           <span>Forecast range</span>
-          <strong>{summary.tempRange}</strong>
+          <strong>
+            {formatTemp(summary.minTemp)} – {formatTemp(summary.maxTemp)}
+          </strong>
         </li>
       </ul>
     </section>

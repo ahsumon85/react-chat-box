@@ -1,3 +1,4 @@
+import { useUnits } from '../../context/UnitsContext'
 import type { WeatherCurrent, WeatherLocation } from '../../types/weather'
 import ConceptBadge from './ConceptBadge'
 
@@ -7,15 +8,18 @@ interface WeatherCardProps {
 }
 
 function WeatherCard({ location, current }: WeatherCardProps) {
+  const { formatTemp } = useUnits()
+
   return (
     <section className="weather-section">
       <div className="weather-section__header">
         <h3>Current weather</h3>
         <ConceptBadge label="Props" />
+        <ConceptBadge label="Context API" />
       </div>
       <p className="weather-section__hint">
-        This component receives <code>location</code> and <code>current</code> as props from its
-        parent — it does not fetch data itself.
+        This component receives <code>location</code> and <code>current</code> as props, and reads
+        the unit preference from <code>UnitsContext</code> with <code>useUnits()</code>.
       </p>
 
       <div className="weather-card">
@@ -33,10 +37,10 @@ function WeatherCard({ location, current }: WeatherCardProps) {
           </div>
         </div>
 
-        <p className="weather-card__temp">{current.temp_c}°C</p>
+        <p className="weather-card__temp">{formatTemp(current.temp_c)}</p>
 
         <ul className="weather-card__details">
-          <li>Feels like: {current.feelslike_c}°C</li>
+          <li>Feels like: {formatTemp(current.feelslike_c)}</li>
           <li>Humidity: {current.humidity}%</li>
           <li>
             Wind: {current.wind_kph} km/h {current.wind_dir}

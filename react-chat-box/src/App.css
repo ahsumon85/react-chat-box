@@ -455,3 +455,33 @@
   font-size: 1.1rem;
   color: #1e293b;
 }
+
+.unit-toggle {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.unit-toggle__btn {
+  padding: 0.5rem 1rem;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #475569;
+}
+
+.unit-toggle__btn:hover {
+  background: #e2e8f0;
+}
+
+.unit-toggle__btn--active {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+}
+
+.weather-details-fallback {
+  text-align: center;
+}

@@ -15,7 +15,8 @@ function ForecastList({ days }: ForecastListProps) {
       </div>
       <p className="weather-section__hint">
         We use <code>.map()</code> to render a list. Each item gets a unique <code>key</code>{' '}
-        (here: <code>day.date</code>) so React can track changes efficiently.
+        (here: <code>day.date</code>) so React can track changes efficiently. Each{' '}
+        <code>ForecastDay</code> reads the unit from <code>UnitsContext</code>.
       </p>
 
       <ul className="forecast-list">
